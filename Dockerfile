@@ -17,3 +17,5 @@ RUN apk add --no-cache \
 
 # https://github.com/python-pillow/Pillow/issues/1763
 ENV LIBRARY_PATH=/lib:/usr/lib
+
+RUN pip install --no-cache-dir newspaper3k
