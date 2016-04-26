@@ -13,7 +13,13 @@ RUN apk add --no-cache \
     zlib \
     zlib-dev \
     libpng-dev \
-    jpeg-dev
+    jpeg-dev \
+    ca-certificates
 
 # https://github.com/python-pillow/Pillow/issues/1763
 ENV LIBRARY_PATH=/lib:/usr/lib
+
+RUN pip install newspaper3k
+
+# Download corpora
+RUN python -m nltk.downloader brown punkt maxent_treebank_pos_tagger movie_reviews wordnet stopwords averaged_perceptron_tagger
