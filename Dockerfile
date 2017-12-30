@@ -1,4 +1,4 @@
-FROM python:3.5.1-alpine
+FROM python:3.6-alpine
 
 MAINTAINER Srinath Sankar <srinath@iambot.net>
 
@@ -22,4 +22,11 @@ ENV LIBRARY_PATH=/lib:/usr/lib
 RUN pip install --no-cache-dir newspaper3k
 
 # Download corpora
-RUN python -m nltk.downloader brown punkt maxent_treebank_pos_tagger movie_reviews wordnet stopwords averaged_perceptron_tagger
+RUN python -m \
+    nltk.downloader \
+    brown \
+    punkt \
+    maxent_treebank_pos_tagger \
+    movie_reviews \
+    wordnet stopwords \
+    averaged_perceptron_tagger
